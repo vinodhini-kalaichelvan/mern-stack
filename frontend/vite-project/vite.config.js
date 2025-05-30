@@ -5,7 +5,7 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   optimizeDeps: {
-    include: ['bootstrap', 'react-bootstrap'],
+    include: ['bootstrap', 'react-bootstrap', 'react-icons'],
   },
   build: {
     commonjsOptions: {
