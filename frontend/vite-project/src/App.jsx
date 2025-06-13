@@ -6,6 +6,10 @@ import Home from "./pages/Home/Home";
 import Contact from "./pages/Contact/Contact";
 import Products from "./pages/Products/Products";
 
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import Signup from './pages/Auths/Signup';
+
 function App() {
   
 
@@ -16,8 +20,10 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/products" element={<Products />} />
+          <Route path="/register" element={<Signup />} />
         </Routes>
       </Router>
+      <ToastContainer position="top-right" autoClose = {3000} />
     </>
   );
 }
