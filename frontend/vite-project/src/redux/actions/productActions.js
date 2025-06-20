@@ -1,4 +1,4 @@
-import { toast } from "react-bootstrap";
+import { toast } from "react-toastify";
 import API_URL from "../../api";
 
  //fetch
