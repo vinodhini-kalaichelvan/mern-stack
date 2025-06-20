@@ -1,39 +1,32 @@
 import React from 'react';
 import { Modal, Button } from 'react-bootstrap';
 
-const ModalComponent = ({ 
-  show, 
-  onClose, 
-  onSubmit, 
-  title, 
-  submitLabel = "Save",
-  children 
-}) => {
+const ModalComponent = ({
+   show,
+   onClose,
+   onSubmit,
+   title,
+   children,
+   submitLabel,
+ }) => {
   return (
     <Modal show={show} onHide={onClose}>
-      <form onSubmit={(e) => {
-        e.preventDefault();
-        onSubmit(e);
-      }}>
-        <Modal.Header closeButton>
-          <Modal.Title>{title}</Modal.Title>
-        </Modal.Header>
-        
-        <Modal.Body>
-          {children}
-        </Modal.Body>
-        
-        <Modal.Footer>
-          <Button variant="secondary" onClick={onClose}>
-            Cancel
-          </Button>
-          <Button variant="primary" type="submit">
-            {submitLabel}
-          </Button>
-        </Modal.Footer>
-      </form>
+      <Modal.Header closeButton>
+        <Modal.Title>{title}</Modal.Title>
+      </Modal.Header>
+
+      <Modal.Body> {children} </Modal.Body>
+
+      <Modal.Footer>
+        <Button variant="secondary" onClick={onClose}>
+          Close
+        </Button>
+        <Button variant="primary" onClick={onSubmit}>
+          {submitLabel}
+        </Button>
+      </Modal.Footer>
     </Modal>
   );
 };
 
-export default ModalComponent;
+export default ModalComponent;

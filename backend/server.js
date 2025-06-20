@@ -4,6 +4,7 @@ import cors from "cors";
 import { connectDB } from "./config/db.js";
 import productsRoutes from "./routes/product.route.js";
 import mongoose from "mongoose";
+import authRoutes from "./routes/auth.route.js";
 
 dotenv.config()
 
@@ -39,6 +40,7 @@ app.get("/api/test-db", async (req, res) => {
 
 // Routes
 app.use('/api/products', productsRoutes)
+app.use('/api/auth',authRoutes)
 
 app.get("/", (req, res) => {
     res.send("Welcome , server is live");
