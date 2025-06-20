@@ -1,4 +1,5 @@
- import { toast } from "react-bootstrap";
+import { toast } from "react-bootstrap";
+import API_URL from "../../api";
 
  //fetch
  export const FETCH_PRODUCTS_REQUEST = "FTECH_PRODUCTS_REQUESTS";
@@ -24,7 +25,7 @@
 export const fetchProducts = () => async (dispatch) => {
   dispatch({ type: FETCH_PRODUCTS_REQUEST });
   try {
-    const res = await fetch("http://localhost:5100/api/products");
+    const res = await fetch(`${API_URL}/products`);
     const data = await res.json();
 
     // console.log("products", data);
@@ -43,7 +44,7 @@ export const addProduct = (product) => async (dispatch) => {
 
   dispatch({ type: CREATE_PRODUCT_REQUEST });
   try {
-    const res = await fetch("https://fakestoreapi.com/products", {
+    const res = await fetch(`${API_URL}/products`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(product),
@@ -64,7 +65,7 @@ export const updateProduct = (product) => async (dispatch) => {
 
   dispatch({ type: UPDATE_PRODUCT_REQUEST });
   try {
-    const res = await fetch(`https://fakestoreapi.com/products/${product.id}`, {
+    const res = await fetch(`${API_URL}/products/${product.id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(product),
@@ -85,7 +86,7 @@ export const deleteProduct = (id) => async (dispatch) => {
 
   dispatch({ type: DELETE_PRODUCT_REQUEST });
   try {
-    await fetch(`https://fakestoreapi.com/products/${id}`, {
+    await fetch(`${API_URL}/products/${id}`, {
       method: "DELETE",
     });
 
